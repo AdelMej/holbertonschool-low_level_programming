@@ -10,9 +10,9 @@ int main(void)
 {
 char x = 'a';
 do {
-if(x !='q' && x != 'e'){
+if (x != 'q' && x != 'e')
+{
 putchar(x);
-} else {
 }
 x++;
 } while (x <= 'z');
