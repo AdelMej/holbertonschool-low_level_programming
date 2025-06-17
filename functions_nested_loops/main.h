@@ -19,4 +19,7 @@ int _isalpha(int c);
 /* prints n sign*/
 int print_sign(int n);
 
+/* prints the absolute value of a given integer*/
+int _abs(int);
+
 #endif
