@@ -13,7 +13,10 @@ void print_alphabet_x10(void);
 /* returns if c is lowercase or not*/
 int _islower(int c);
 
-/* rturns if c is an alphanumerical value or not */
+/* returns if c is an alphanumerical value or not */
 int _isalpha(int c);
+
+/* prints n sign*/
+int print_sign(int n);
 
 #endif
