@@ -19,5 +19,6 @@ putchar(' ');
 }
 x++;
 } while (x < 10);
+putchar('\n');
 return (0);
 }
