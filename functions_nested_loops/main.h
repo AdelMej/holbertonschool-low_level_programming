@@ -28,4 +28,7 @@ int print_last_digit(int);
 /*prints every minutes of the day of Jack Bauer starting by 00:00 to 23:59*/
 void jack_bauer(void);
 
+/* prints the multiplication table */
+void times_table(void);
+
 #endif
