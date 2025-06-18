@@ -9,15 +9,16 @@ int main(void)
 {
 	int x = 0;
 	int y = 0;
-	
+
 	while (x < 10)
 	{
 		while (y < 10)
 		{
-			if(x < y){
+			if (x < y)
+			{
 				putchar(x + '0');
 				putchar(y + '0');
-				if(!(x==8 && y == 9))
+				if (!(x == 8 && y == 9))
 				{
 					putchar(',');
 					putchar(' ');
@@ -29,5 +30,5 @@ int main(void)
 		x++;
 	}
 	putchar('\n');
-	return(0);
+	return (0);
 }
