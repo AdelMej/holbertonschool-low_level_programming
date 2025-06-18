@@ -8,21 +8,22 @@
 
 int main(void)
 {
-	int x=0;
-	int y=0;
-	int z=0;
+	int x = 0;
+	int y = 0;
+	int z = 0;
 
 	while (z < 10)
 	{
-		while(y < 10)
+		while (y < 10)
 		{
-			while (x < 10){
+			while (x < 10)
+			{
 				if ((z < y) && (y < x))
 				{
 					putchar(z + '0');
 					putchar(y + '0');
 					putchar(x + '0');
-					if(!((z == 7) && (y == 8) && (x == 9)))
+					if (!((z == 7) && (y == 8) && (x == 9)))
 					{
 						putchar(',');
 						putchar(' ');
@@ -30,10 +31,10 @@ int main(void)
 				}
 			x++;
 			}
-			x=0;
+			x = 0;
 			y++;
 		}
-		y=0;
+		y = 0;
 		z++;
 	}
 	putchar('\n');
