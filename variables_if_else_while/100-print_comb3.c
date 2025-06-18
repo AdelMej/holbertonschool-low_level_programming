@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
 * main - print numbers in a specific order
 *
 * Return: always zero
