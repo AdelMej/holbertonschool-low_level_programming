@@ -18,7 +18,7 @@ int main(void)
 			if (y > x)
 			{
 				putchar((x / 10) + '0');
-				putchar(x % 10 + '0');
+				putchar((x % 10) + '0');
 				putchar(' ');
 				putchar((y / 10) + '0');
 				putchar((y % 10) + '0');
