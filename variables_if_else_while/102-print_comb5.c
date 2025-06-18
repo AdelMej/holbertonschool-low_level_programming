@@ -10,16 +10,19 @@ int main(void)
 {
 	int x = 0;
 	int y = 0;
-	while (x < 100){
+
+	while (x < 100)
+	{
 		while (y < 100)
 		{
-			if(y > x){
+			if (y > x)
+			{
 				putchar((x / 10) + '0');
 				putchar(x % 10 + '0');
 				putchar(' ');
 				putchar((y / 10) + '0');
 				putchar((y % 10) + '0');
-				if(!((x == 98) && (y == 99)))
+				if (!((x == 98) && (y == 99)))
 				{
 					putchar(',');
 					putchar(' ');
@@ -27,7 +30,7 @@ int main(void)
 			}
 			y++;
 		}
-		y=0;
+		y = 0;
 		x++;
 	}
 	putchar('\n');
