@@ -34,4 +34,7 @@ void times_table(void);
 /* return the result of an addition between 2 integer */
 int add(int, int);
 
+/* prints all the number until 98 starting with a given number*/
+void print_to_98(int n);
+
 #endif
