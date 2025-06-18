@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 /**
 * main - print and that piece of art is useful" - Dora Korpar, 2015-10-19 on the error output
 *
-* Return: always zero
+* Return: always one
 */
 int main(void)
 {
-	fprintf(stderr, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
-	return (0);
+	fwrite("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", 1, strlen("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n"), stderr);
+	return (1);
 }
