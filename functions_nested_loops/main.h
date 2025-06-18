@@ -31,4 +31,7 @@ void jack_bauer(void);
 /* prints the multiplication table */
 void times_table(void);
 
+/* return the result of an addition between 2 integer */
+int add(int, int);
+
 #endif
