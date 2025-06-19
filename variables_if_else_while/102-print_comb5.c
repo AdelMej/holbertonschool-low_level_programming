@@ -28,7 +28,7 @@ int main(void)
 					putchar(' ');
 				}
 			}
-			else 
+			else
 			{
 				y = x;
 			}
