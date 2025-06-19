@@ -37,4 +37,7 @@ int add(int, int);
 /* prints all the number until 98 starting with a given number*/
 void print_to_98(int n);
 
+/* prints the multiplication table of a given number */
+void print_times_table(int n);
+
 #endif
