@@ -28,6 +28,10 @@ int main(void)
 					putchar(' ');
 				}
 			}
+			else 
+			{
+				y = x;
+			}
 			y++;
 		}
 		y = 0;
