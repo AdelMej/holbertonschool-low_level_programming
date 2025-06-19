@@ -15,27 +15,34 @@ void print_times_table(int n)
 {
 	int i, j;
 
-	for (i = 0; i <= n; i++)
+	if (n == 0)
 	{
-		for (j = 0; j <= n; j++)
+		_putchar('0');
+	}
+	else
+	{
+		for (i = 0; i <= n; i++)
 		{
-			if (j == 0)
+			for (j = 0; j <= n; j++)
 			{
-				_putchar('0');
-				_putchar(',');
+				if (j == 0)
+				{
+					_putchar('0');
+					_putchar(',');
 
+				}
+				if ((j != n) && (j != 0))
+				{
+					printNumber(i * j);
+					_putchar(',');
+				}
+				else if (j == n)
+				{
+					printNumber(i * j);
+				}
 			}
-			if ((j != n) && (j != 0))
-			{
-				printNumber(i * j);
-				_putchar(',');
-			}
-			else if (j == n)
-			{
-				printNumber(i * j);
-			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
 
