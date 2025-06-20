@@ -8,18 +8,18 @@
 
 int main(void)
 {
-	double x = 1;
-	double y = 2;
-	double temp = 0;
+	long double x = 1;
+	long double y = 2;
+	long double temp = 0;
 	int i;
 
 	for (i = 1; i < 98; i++)
 	{
-		printf("%.f, ", x);
+		printf("%.Lf, ", x);
 		temp = x;
 		x = y;
 		y = x + temp;
 	}
-	printf("%.f\n", x);
+	printf("%.Lf\n", x);
 	return (0);
 }
