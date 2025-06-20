@@ -11,9 +11,9 @@ int main(void)
 	const int MAX_VALUE = 1024;
 	int i = 0;
 
-	while(i <= MAX_VALUE)
+	while (i <= MAX_VALUE)
 	{
-		if(i == 1023)
+		if (i == 1023)
 		{
 			printf("%d\n", i);
 			break;
