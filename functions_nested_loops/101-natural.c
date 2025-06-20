@@ -10,23 +10,20 @@ int main(void)
 {
 	const int MAX_VALUE = 1024;
 	int i = 0;
+	int res = 0;
 
 	while (i <= MAX_VALUE)
 	{
-		if (i == 1023)
-		{
-			printf("%d\n", i);
-			break;
-		}
 		if ((i % 3) == 0)
 		{
-			printf("%d, ", i);
+			res = res + i;
 		}
 		else if ((i % 5) == 0)
 		{
-			printf("%d, ", i);
+			res = res + i;
 		}
 		i++;
 	}
+	printf("%d\n", res);
 	return (0);
 }
