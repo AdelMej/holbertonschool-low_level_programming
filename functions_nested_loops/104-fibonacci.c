@@ -63,9 +63,6 @@ int main(void)
 	int c[MAXDIGITS] = {0};
 	int i;
 
-	printNumber(a);
-	printNumber(b);
-
 	for (i = 1; i < 98; i++)
 	{
 		int j;
@@ -80,7 +77,7 @@ int main(void)
 			b[j] = c[j];
 		}
 	}
-	add(a,b,c);
+	add(a, b, c);
 	printNumber(c);
 	printf("\n");
 	return (0);
