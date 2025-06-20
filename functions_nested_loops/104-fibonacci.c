@@ -13,7 +13,7 @@ int main(void)
 	double temp = 0;
 	int i;
 
-	for (i = 0; i < 98; i++)
+	for (i = 1; i < 98; i++)
 	{
 		printf("%.f,", x);
 		temp = x;
