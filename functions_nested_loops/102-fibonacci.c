@@ -13,7 +13,7 @@ int main(void)
 	long int x = 1;
 	long int y = 2;
 	long int temp = 0;
-	int i = 0;
+	int i = 1;
 
 	while (i < 50)
 	{
