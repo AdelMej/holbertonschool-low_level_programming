@@ -15,7 +15,7 @@ int main(void)
 	long int temp = 0;
 	int i = 0;
 
-	while (i <= 50)
+	while (i < 50)
 	{
 		printf("%ld, ", x);
 		temp = x;
