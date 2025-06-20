@@ -10,8 +10,8 @@ int fibonnachi(int n);
 
 int main(void)
 {
-	long int x = 0;
-	long int y = 1;
+	long int x = 1;
+	long int y = 2;
 	long int temp = 0;
 	int i = 0;
 
