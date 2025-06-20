@@ -10,18 +10,20 @@ int fibonnachi(int n);
 
 int main(void)
 {
-	int x = 0;
-	int y = 1;
-	int temp = 0;
+	long int x = 0;
+	long int y = 1;
+	long int temp = 0;
+	int i = 0;
 
-	while (y < 50)
+	while (i <= 50)
 	{
-		printf("%d, ", x);
+		printf("%ld, ", x);
 		temp = x;
 		x = y;
 		y = y + temp;
+		i++;
 	}
-	printf("%d\n", x);
+	printf("%ld\n", x);
 
 	return (0);
 }
