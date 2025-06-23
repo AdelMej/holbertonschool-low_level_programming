@@ -25,4 +25,7 @@ void more_numbers(void);
 /* a function that prints a line n number of times */
 void print_line(int n);
 
+/* a function that prints a diagonal depending on n */
+void print_diagonal(int n);
+
 #endif
