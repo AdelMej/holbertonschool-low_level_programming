@@ -19,4 +19,7 @@ void print_numbers(void);
 /* a function that prints all numbers but 2 and 4 */
 void print_most_numbers(void);
 
+/* a function that prints 14 numbers 10 times */
+void more_numbers(void);
+
 #endif
