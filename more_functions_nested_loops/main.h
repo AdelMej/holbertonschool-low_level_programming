@@ -16,4 +16,7 @@ int mul(int a, int b);
 /* a function that prints the first 9 digits */
 void print_numbers(void);
 
+/* a function that prints all numbers but 2 and 4 */
+void print_most_numbers(void);
+
 #endif
