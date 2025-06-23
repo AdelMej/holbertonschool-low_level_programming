@@ -25,4 +25,7 @@ void rev_string(char *s);
 /* a function that prints every other character of a given string */
 void puts2(char *str);
 
+/* a function that prints half of a string */
+void puts_half(char *str);
+
 #endif
