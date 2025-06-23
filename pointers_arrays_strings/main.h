@@ -34,4 +34,7 @@ void print_array(int *a, int n);
 /* a function that copies a string in another one */
 char *_strcpy(char *dest, char *src);
 
+/* a function that return a number */
+int _atoi(char *s);
+
 #endif
