@@ -1,9 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 /**
+* print_array - a function that prints a given table to a given number
+* @a: an array to be displayed
+* @n: the number of integer displayed
 *
-*
-*
+* Return: void
 */
 
 void print_array(int *a, int n)
