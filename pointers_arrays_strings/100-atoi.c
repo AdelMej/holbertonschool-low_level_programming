@@ -13,20 +13,16 @@ int _atoi(char *s)
 {
 	int i = 0;
 	unsigned int number = 0;
-	int negative = 0;
-	int positive = 0;
+	int sign = 1;
 
 	/* placing myself where the number starts */
 	while ((s[i] != '\0') && ((s[i] < '0') || (s[i] > '9')))
 	{
-		if (s[i] == '-')
+		if ((s[i]) == '-')
 		{
-			negative++;
+			sign *= -1;
 		}
-		else if (s[i] == '+')
-		{
-			positive++;
-		}
+
 		i++;
 	}
 
@@ -37,8 +33,7 @@ int _atoi(char *s)
 		i++;
 	}
 
-	if (negative > positive)
-		number *= -1;
+	number *= sign;
 
 	return (number);
 }
