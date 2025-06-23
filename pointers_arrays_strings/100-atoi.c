@@ -18,21 +18,30 @@ int _atoi(char *s)
 	int number = 0;
 	int nbsize = 0;
 	int multiplier = 1;
-  /* placing myself where the number starts */
-	while ((s[i] != '\0') && ((s[i] < '0') || (s[i] > '9')))
-	  i++;
 
-  /* calculating how many numbers needs are in the array */
+	/* placing myself where the number starts */
+	while ((s[i] != '\0') && ((s[i] < '0') || (s[i] > '9')))
+		i++;
+
+	/* calculating how many numbers needs are in the array */
 	while ((s[i + nbsize] != '\0') && ((s[i + nbsize] >= '0')
 		&& (s[i + nbsize] <= '9')))
-    nbsize++;
+		nbsize++;
 
-  /* creating an integer using arithmetic operations */
+	/* creating an integer using arithmetic operations */
 	while ((i + nbsize) > i)
 	{
 		number += (s[i - 1 + nbsize] - '0') * multiplier;
 		multiplier *= 10;
 		nbsize--;
+	}
+	while ((s[i] == '+') || (s[i] == '-'))
+	{
+		if(s[i] == '-')
+			negative++;
+		else
+			positive++;
+		i--;
 	}
 	if (negative > positive)
 	{
