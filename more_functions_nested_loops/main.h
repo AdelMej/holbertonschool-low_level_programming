@@ -28,4 +28,7 @@ void print_line(int n);
 /* a function that prints a diagonal depending on n */
 void print_diagonal(int n);
 
+/* a function that prints a square with "#" */
+void print_square(int size);
+
 #endif
