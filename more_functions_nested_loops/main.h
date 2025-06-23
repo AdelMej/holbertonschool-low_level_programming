@@ -7,4 +7,7 @@ int _isupper(int c);
 /* a function that returns if a character is a digit or not */
 int _isdigit(int c);
 
+/* a function that multiplies 2 given integers */
+int mul(int a, int b);
+
 #endif
