@@ -24,9 +24,10 @@ int main(void)
 		{
 			printf("%d", i);
 		}
-		printf(" ");
+		if (i != 100)
+			printf(" ");
 		i++;
 	} while (i <= 100);
-	printf(" \n");
+	printf("\n");
 	return (0);
 }
