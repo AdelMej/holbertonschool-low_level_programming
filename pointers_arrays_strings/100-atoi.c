@@ -19,11 +19,11 @@ int _atoi(char *s)
 	/* placing myself where the number starts */
 	while ((s[i] != '\0') && ((s[i] < '0') || (s[i] > '9')))
 	{
-		if(s[i] == '-')
+		if (s[i] == '-')
 		{
 			negative++;
 		}
-		else if(s[i] == '+')
+		else if (s[i] == '+')
 		{
 			positive++;
 		}
