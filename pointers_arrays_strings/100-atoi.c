@@ -35,15 +35,17 @@ int _atoi(char *s)
 		multiplier *= 10;
 		nbsize--;
 	}
-	while ((s[i] == '+') || (s[i] == '-'))
+
+	while ((s[i - 1] == '+') || (s[i - 1] == '-'))
 	{
-		if(s[i] == '-')
+		if(s[i - 1] == '-')
 			negative++;
 		else
 			positive++;
 		i--;
 	}
-	if (negative >= positive)
+
+	if (negative > positive)
 	{
 		number *= -1;
 	}
