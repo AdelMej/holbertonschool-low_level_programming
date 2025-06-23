@@ -22,4 +22,7 @@ void print_most_numbers(void);
 /* a function that prints 14 numbers 10 times */
 void more_numbers(void);
 
+/* a function that prints a line n number of times */
+void print_line(int n);
+
 #endif
