@@ -43,7 +43,7 @@ int _atoi(char *s)
 			positive++;
 		i--;
 	}
-	if (negative > positive)
+	if (negative >= positive)
 	{
 		number *= -1;
 	}
