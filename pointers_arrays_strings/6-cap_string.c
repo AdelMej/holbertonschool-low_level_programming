@@ -16,7 +16,7 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (!isinWord)
+		if (!isinWord && !isSeparator(str[i]))
 		{
 			if (str[i] <= 'z' && str[i] >= 'a')
 			{
