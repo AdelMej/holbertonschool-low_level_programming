@@ -40,4 +40,7 @@ int _atoi(char *s);
 /* a function that concatenates two strings */
 char *_strcat(char *dest, char *src);
 
+/* a function that concatenates n characters */
+char *_strncat(char *dest, char *src, int n);
+
 #endif
