@@ -17,7 +17,7 @@ char *leet(char *str)
 	{
 		for (j = 0; j < 5; j++)
 		{
-			if (str[i] == compare[j])
+			if (str[i] == compare[j] || str[i] == compare[j] - 32)
 				str[i] = encode[j];
 		}
 	}
