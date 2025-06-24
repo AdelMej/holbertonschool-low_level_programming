@@ -11,10 +11,11 @@
 char *_strcat(char *dest, char *src)
 {
 	int i, j;
-	
+
 	/* on se place la ou le premier string est fini */
-	for (i = 0; dest[i] != '\0'; i++);
-	
+	for (i = 0; dest[i] != '\0'; i++)
+		;
+
 	/* on remplace le caractere '\0' par un espace */
 	dest[i] = ' ';
 	j = 0;
