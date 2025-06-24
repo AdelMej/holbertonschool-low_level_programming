@@ -12,11 +12,24 @@
 char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
+	int length = 0;
+
+	/* calcule de la taille de source */
+	while (src[length] != '\0')
+		length++;
+
 
 	for (i = 0; i < n; i++)
 	{
-		dest[i] = src[i];
+		/* si on depasse remplacer par des null */
+		if (i > length)
+		{
+			dest[i] = '\0';
+		}
+		else /* sinon remplacer par source */
+		{
+			dest[i] = src[i];
+		}
 	}
-
 	return (dest);
 }
