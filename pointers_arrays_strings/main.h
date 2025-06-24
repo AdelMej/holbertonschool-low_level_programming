@@ -43,4 +43,7 @@ char *_strcat(char *dest, char *src);
 /* a function that concatenates n characters */
 char *_strncat(char *dest, char *src, int n);
 
+/* a function that copies a string */
+char *_strncpy(char *dest, char *src, int n);
+
 #endif
