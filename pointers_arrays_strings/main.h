@@ -58,4 +58,7 @@ char *string_toupper(char *);
 /* a function that capitalize all strings in a word */
 char *cap_string(char *);
 
+/* a function that encodes a string in 1337 */
+char *leet(char *);
+
 #endif
