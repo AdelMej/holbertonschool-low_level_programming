@@ -9,21 +9,21 @@
 int main(void)
 {
 	unsigned long number = 612852475143;
-    unsigned long divisor = 2;
+	unsigned long divisor = 2;
 
-    while (divisor * divisor <= number)
-    {
-        if (number % divisor == 0)
-        {
-            number /= divisor;
-        }
-        else
-        {
-            divisor++;
-        }
-    }
+	while (divisor * divisor <= number)
+	{
+		if (number % divisor == 0)
+		{
+			number /= divisor;
+		}
+		else
+		{
+			divisor++;
+		}
+	}
 
-    printf("%lu\n", number);
-    return (0);
+	printf("%lu\n", number);
+	return (0);
 }
 
