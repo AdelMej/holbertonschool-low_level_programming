@@ -8,23 +8,22 @@
 
 int main(void)
 {
-	long long BiggestPrime = 612852475143;
-	int i;
+	unsigned long number = 612852475143;
+    unsigned long divisor = 2;
 
-	while (BiggestPrime % 2 == 0)
-	{
-		BiggestPrime /= 2;
-	}
+    while (divisor * divisor <= number)
+    {
+        if (number % divisor == 0)
+        {
+            number /= divisor;
+        }
+        else
+        {
+            divisor++;
+        }
+    }
 
-	for (i = 3; i * i <= BiggestPrime; i = i + 2)
-	{
-		while (BiggestPrime % i == 0)
-		{
-			BiggestPrime /= i;
-		}
-
-	}
-
-	printf("%lld\n", BiggestPrime);
-	return (0);
+    printf("%lu\n", number);
+    return (0);
 }
+
