@@ -37,4 +37,7 @@ char *_strcpy(char *dest, char *src);
 /* a function that return a number */
 int _atoi(char *s);
 
+/* a function that concatenates two strings */
+char *_strcat(char *dest, char *src);
+
 #endif
