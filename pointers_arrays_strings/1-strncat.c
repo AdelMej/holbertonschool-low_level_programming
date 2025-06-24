@@ -1,9 +1,10 @@
 #include "main.h"
 #include <stdio.h>
 /**
-* _strcat - a function that concatenate two given strings
+* _strncat - a function that concatenate two given strings until n is reached
 * @dest: the receiving string
 * @src: the string to be copied
+* @n: the number of character to concatenate
 *
 * Return: the concatenated string
 */
