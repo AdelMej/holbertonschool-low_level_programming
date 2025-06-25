@@ -13,15 +13,8 @@ char *rot13(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] >= 'a') && (str[i] <= 'n'))
-			str[i] += 13;
-		else if ((str[i] >= 'n') && (str[i] <= 'z'))
-			str[i] -= 13;
-		else if ((str[i] >= 'A') && (str[i] <= 'N'))
-			str[i] += 13;
-		else if ((str[i] >= 'N') && (str[i] <= 'Z'))
-			str[i] -= 13;
+		if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z'))
+            str[i] = (str[i] - 'a' + 13) % 26 + 'a';
 	}
-
 	return (str);
 }
