@@ -10,32 +10,26 @@
 char *rot13(char *s)
 {
 	char *p = s;
-	int i;
 	char c;
-	char base;
+	int i;
+	char rotated;
+	char from[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char to[]   = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 
 	while (*p)
 	{
 		c = *p;
-		base = 0;
+		rotated = c;
 
-		/* First loop: set base to 'a' if c is a lowercase letter */
-		for (i = 'a'; i <= 'z'; i++)
+		for (i = 0; i < 52; i++)
 		{
-			base += (c == i) * ('a' - base);
+			rotated += (c == from[i]) * (to[i] - c);
 		}
 
-		/* Second loop: set base to 'A' if c is an uppercase */
-		/* letter and base is still 0 */
-		for (i = 'A'; i <= 'Z'; i++)
+		if (rotated != c)
 		{
-			base += ((c == i) && (base == 0)) * ('A' - base);
-		}
-
-		/* One and only if statement: apply ROT13 if c was a letter */
-		if (base)
-		{
-			*p = ((c - base + 13) % 26) + base;
+			*p = rotated;
 		}
 
 		p++;
