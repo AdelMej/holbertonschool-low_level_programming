@@ -9,31 +9,35 @@
 
 char *rot13(char *s)
 {
-	int i;
-	char base;
 	char *p = s;
+	int i;
+	char c;
+	char base;
 
 	while (*p)
 	{
-		/* Only one if statement is allowed */
-		if ((*p >= 'A' && *p <= 'Z') || (*p >= 'a' && *p <= 'z'))
+		c = *p;
+		base = 0;
+
+		/* First loop: set base to 'a' if c is a lowercase letter */
+		for (i = 'a'; i <= 'z'; i++)
 		{
-			base = 'A';
-			i = 0;
-
-			/* First loop to determine if lowercase */
-			for (i = 'a'; i <= 'z'; i++)
-			{
-				if (*p == i)
-				{
-					base = 'a';
-					break;
-				}
-			}
-
-			/* Apply ROT13 */
-			*p = ((*p - base + 13) % 26) + base;
+			base += (c == i) * ('a' - base);
 		}
+
+		/* Second loop: set base to 'A' if c is an uppercase */
+		/* letter and base is still 0 */
+		for (i = 'A'; i <= 'Z'; i++)
+		{
+			base += ((c == i) && (base == 0)) * ('A' - base);
+		}
+
+		/* One and only if statement: apply ROT13 if c was a letter */
+		if (base)
+		{
+			*p = ((c - base + 13) % 26) + base;
+		}
+
 		p++;
 	}
 	return (s);
