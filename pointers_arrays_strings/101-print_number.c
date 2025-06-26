@@ -2,14 +2,13 @@
 
 /**
 * print_number - a function that  prints a given number
-* @number: an integer to be printed
+* @n: an integer to be printed
 *
 * Return: void
 */
 
-void print_number(int number)
+void print_number(int n)
 {
-	unsigned int n = number;
 
 	if (n < 0)
 	{
