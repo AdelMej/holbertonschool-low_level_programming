@@ -64,4 +64,7 @@ char *leet(char *);
 /* a function that encodes a string in rot13 */
 char *rot13(char *);
 
+/* af= function that prints a given number */
+void print_number(int n);
+
 #endif
