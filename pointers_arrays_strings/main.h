@@ -64,7 +64,10 @@ char *leet(char *);
 /* a function that encodes a string in rot13 */
 char *rot13(char *);
 
-/* af= function that prints a given number */
+/* a function that prints a given number */
 void print_number(int n);
+
+/* a function that infinitely adds to given number stored in a string */
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
 
 #endif
