@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
-* _strstr - a function that search a given string in contained in a string
+* _strstr - a function that search a given string contained in a string
 * @haystack: a string to be searched in
 * @needle: a string to search
 *
@@ -11,35 +11,22 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int isFound = 0;
-	char *result;
-	int i, j;
+	int i, j = 0;
+	if (*needle == '\0')
+		return (haystack);
+	if (*haystack == '\0')
+		return (NULL);
 
 	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (needle[j] == haystack[i])
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			if (j == 0)
-			{
-				isFound = 1;
-				result = &haystack[i];
-			}
-			while (isFound && needle[j] != '\0' && haystack[i] != '\0')
-			{
-				if (haystack[i] != needle[j])
-				{
-					isFound = 0;
-					break;
-				}
-				i++;
-				j++;
-			}
-			j = 0;
+			if(haystack[i + j] != needle[j])
+				break;
 		}
+		if(needle[j] == '\0')
+			return (haystack + i);
 	}
 
-	if (isFound)
-		return (result);
-	else
-		return (NULL);
+	return (NULL);
 }
