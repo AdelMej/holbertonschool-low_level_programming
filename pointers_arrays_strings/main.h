@@ -73,4 +73,10 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r);
 /* a function that initianlize memory witha given character */
 char *_memset(char *s, char b, unsigned int n);
 
+/* a function that copies the content of a given string into another */
+char *_memcpy(char *dest, char *src, unsigned int n);
+
+/* a function that returns a pointer to the first occurence of a given character */
+char *_strchr(char *s, char c);
+
 #endif
