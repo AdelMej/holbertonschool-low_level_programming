@@ -79,4 +79,7 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 /* a function that returns a pointer to the first occurence of a given character */
 char *_strchr(char *s, char c);
 
+/* a function that return the number of occurence from a given string */
+unsigned int _strspn(char *s, char *accept);
+
 #endif
