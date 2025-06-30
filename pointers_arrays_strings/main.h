@@ -82,4 +82,16 @@ char *_strchr(char *s, char c);
 /* a function that return the number of occurence from a given string */
 unsigned int _strspn(char *s, char *accept);
 
+/* a function that searches a string for any of a set of bytes */
+char *_strpbrk(char *s, char *accept);
+
+/* a function tha locates a substring */
+char *_strstr(char *haystack, char *needle);
+
+/* a function that prints a chessboard */
+void print_chessboard(char (*a)[8]);
+
+/* a function that makes the sum of a diagonal */
+void print_diagsums(int *a, int size);
+
 #endif
