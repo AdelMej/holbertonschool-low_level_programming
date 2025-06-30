@@ -70,4 +70,7 @@ void print_number(int n);
 /* a function that infinitely adds to given number stored in a string */
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
 
+/* a function that initianlize memory witha given character */
+char *_memset(char *s, char b, unsigned int n);
+
 #endif
