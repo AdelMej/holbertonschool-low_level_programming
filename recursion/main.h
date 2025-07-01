@@ -1,5 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
+/**
+* File: main.h
+* Description: Header file containing declarations for recursion-related functions.
+*/
 
 /* Prints a single character in the standard output */
 int _putchar(char c);
@@ -31,7 +35,7 @@ void set_string(char **s, char *to);
 /* Returns 1 if a string is a palindrome, else 0 */
 int is_palindrome(char *s);
 
-/* Returns 1 if s2 equals s1 */
+/* Compares two strings and returns 1 if they can be considered identical (with wildcard support) */
 int wildcmp(char *s1, char *s2);
 
 #endif
