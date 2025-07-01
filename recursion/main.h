@@ -27,4 +27,8 @@ int is_prime_number(int n);
 
 /* a function that sets the value of a poiner to a char */
 void set_string(char **s, char *to);
+
+/* a function that returns if a string is a palindrome or not */
+int is_palindrome(char *s);
+
 #endif
