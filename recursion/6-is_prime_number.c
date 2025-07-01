@@ -8,7 +8,9 @@ static int is_divisible_by(int n, unsigned int i);
 * @n: a given number
 *
 * Return: 1 if n is a prime number
-* return 0 if n is not prime or less than equal to zero
+* return 0 if n is not prime or less than equal to one
+*
+* Note: 2 is the only even prime number
 */
 int is_prime_number(int n)
 {
