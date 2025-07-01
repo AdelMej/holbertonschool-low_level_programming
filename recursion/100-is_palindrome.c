@@ -2,6 +2,7 @@
 #include <stdio.h>
 /* declaration de fonction */
 int is_palindrome_helper(char *s1, char *s2);
+int _sizeof(char *);
 
 /**
 * is_palindrome - a function that returns if a string is a palindrome
@@ -16,8 +17,7 @@ int is_palindrome(char *s)
 
 	if (*s == '\0')
 		return (1);
-	for (length = 0; s[length]; length++)
-		;
+	length = _sizeof(s);
 	return (is_palindrome_helper(s, s + length - 1));
 }
 
@@ -42,3 +42,16 @@ int is_palindrome_helper(char *s1, char *s2)
 		return (0);
 	}
 }
+/**
+* _sizeof - a function that returns the size of a string
+* @s: a string
+*
+* Return: the size of n
+*/
+int _sizeof(char *s)
+{
+	if (!*s)
+		return (0);
+	return (1 + _sizeof(s + 1));
+}
+
