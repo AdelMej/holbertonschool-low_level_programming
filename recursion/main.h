@@ -1,34 +1,37 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-/* prints a single character in the standard output */
+/* Prints a single character in the standard output */
 int _putchar(char c);
 
-/* prints a sring in recursion */
+/* Prints a string recursively */
 void _puts_recursion(char *s);
 
-/* prints a string in revers recursively */
+/* Prints a string in reverse recursively */
 void _print_rev_recursion(char *s);
 
-/* a function that returns the length of a string */
+/* Returns the length of s */
 int _strlen_recursion(char *s);
 
-/* a function that returns the factorial of a given value */
+/* Returns the factorial of n */
 int factorial(int n);
 
-/* a function that prints the power to the power of y */
+/* Returns the value of x to the power of y */
 int _pow_recursion(int x, int y);
 
-/* a function that return the square root of a number */
+/* Returns the square root of n */
 int _sqrt_recursion(int n);
 
-/* a funcion that returns if a number is prime or not */
+/* Returns if n is prime, else 0 */
 int is_prime_number(int n);
 
-/* a function that sets the value of a poiner to a char */
+/* Sets the value of a pointer to a char */
 void set_string(char **s, char *to);
 
-/* a function that returns if a string is a palindrome or not */
+/* Returns 1 if a string is a palindrome, else 0 */
 int is_palindrome(char *s);
+
+/* Returns 1 if s2 equals s1 */
+int wildcmp(char *s1, char *s2);
 
 #endif
