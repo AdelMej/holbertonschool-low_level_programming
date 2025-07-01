@@ -17,8 +17,8 @@ int is_palindrome(char *s)
 	if (*s == '\0')
 		return (1);
 	for (length = 0; s[length]; length++)
-			;
-	return is_palindrome_helper(s, s + length - 1);
+		;
+	return (is_palindrome_helper(s, s + length - 1));
 }
 
 /**
@@ -31,11 +31,11 @@ int is_palindrome(char *s)
 */
 int is_palindrome_helper(char *s1, char *s2)
 {
-	if(*s1 == *s2)
+	if (*s1 == *s2)
 	{
-		if(s1 >= s2)
+		if (s1 >= s2)
 			return (1);
-		return is_palindrome_helper(s1 + 1, s2 - 1);
+		return (is_palindrome_helper(s1 + 1, s2 - 1));
 	}
 	else
 	{
