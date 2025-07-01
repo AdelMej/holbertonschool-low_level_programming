@@ -6,7 +6,7 @@ static int check_prime(int n, int i);
 * is_prime_number - a function that returns if a number is prime or not
 * @n: a given number
 *
-* Return: 1 if true else 0
+* Return: 1 if is prime else return 0
 */
 int is_prime_number(int n)
 {
@@ -24,7 +24,7 @@ int is_prime_number(int n)
 * @n: number to check
 * @i: current divisor candidate
 *
-* Return: 1 if true else 0
+* Return: 1 if is prime else return 0
 */
 static int check_prime(int n, int i)
 {

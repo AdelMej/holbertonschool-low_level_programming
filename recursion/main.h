@@ -25,4 +25,6 @@ int _sqrt_recursion(int n);
 /* a funcion that returns if a number is prime or not */
 int is_prime_number(int n);
 
+/* a function that sets the value of a poiner to a char */
+void set_string(char **s, char *to);
 #endif
