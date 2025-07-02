@@ -19,16 +19,6 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (1);
 	}
-	if (argv[1][0] == '-')
-		i = 1;
-	for (; argv[1][i] != '\0'; i++) /* check if we have a number */
-	{
-		if (argv[1][i] < '0' || argv[1][i] > '9') /* if not a number */
-		{
-			printf("Error\n");
-			return (1);
-		}
-	}
 	errno = 0;
 	rest = strtol(argv[1], &endPtr, 10); /* convert string to long integer */
 	if (errno == ERANGE || *endPtr != '\0') /* if number is too long */
