@@ -12,7 +12,7 @@
 
 int main(int argc, char **argv)
 {
-	long a, b;
+	unsigned long a, b;
 	char *endptr;
 
 	if (argc != 3)
@@ -21,14 +21,14 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	a = strtol(argv[1], &endptr, 10);
-	if (endptr == argv[1])
+	if (endptr == argv[1] || *endptr != '\0')
 	{
 		printf("Error\n");
 		return (1);
 	}
 
 	b = strtol(argv[2], &endptr, 10);
-	if (endptr == argv[2])
+	if (endptr == argv[2] || *endptr != '\0')
 	{
 		printf("Error\n");
 		return (1);
