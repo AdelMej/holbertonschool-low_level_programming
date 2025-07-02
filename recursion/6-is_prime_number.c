@@ -1,7 +1,7 @@
 #include "main.h"
 
 /* function declaration */
-static int is_divisible_by(int n, int i);
+int is_divisible_by(int n, int i);
 
 /**
 * is_prime_number - Returns 1 if n is a prime number otherwise 0
