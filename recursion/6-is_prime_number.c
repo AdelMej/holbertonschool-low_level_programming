@@ -29,7 +29,7 @@ int is_prime_number(int n)
 * Return: 1 if no divisors are found (indicating that n is prime),
 * otherwise return 0
 */
-static int is_divisible_by(int n, int i)
+int is_divisible_by(int n, int i)
 {
 	if (i * i > n)
 		return (1);
