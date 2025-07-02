@@ -1,24 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 /**
 * main - a program that prints the minimum number of changes required
 * @argc: the number of parameters
 * @argv: a string containing all the parameters
 * Return: 0 if sucessful otherwise return 1;
 */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int i, rest;
-	/* creating an array sorted by highest to lowest value */
+	int i = 0;
+	long rest, totalCoins;
 	int change[] = {25, 10, 5, 2, 1};
-	int totalCoins = 0;
+	char *endPtr;
 
-	if (argc != 2) /* if we have more than 1 argument print Error and return 1 */
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (i = 0; argv[1][i] != '\0'; i++) /* check if we have a number */
+	if (argv[1][0] == '-')
+		i = 1;
+	for (; argv[1][i] != '\0'; i++) /* check if we have a number */
 	{
 		if (argv[1][i] < '0' || argv[1][i] > '9') /* if not a number */
 		{
@@ -26,26 +29,26 @@ int main(int argc, char **argv)
 			return (1);
 		}
 	}
-	/**
-	 * convert the number in argument to int using atoi
-	 * Note: atoi doesn't handle errors well
-	 */
-	rest = atoi(argv[1]);
-	if (rest < 0) /* check if negative */
+	errno = 0;
+	rest = strtol(argv[1], &endPtr, 10); /* convert string to long integer */
+	if (errno == ERANGE || *endPtr != '\0') /* if number is too long */
+	{
+		printf("Error\n");
+		return (1);
+	}
+	if (rest < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
+	totalCoins = 0;
 	for (i = 0; i != 5; i++) /* calculating the number of coins */
 	{
-		while (rest >= change[i]) /* starting with the largest coin to the lowest */
-		{
-			rest -= change[i];
-			totalCoins++;
-		}
+		totalCoins += (rest / change[i]);
+		rest = rest % change[i];
 		if (rest == 0)
 			break;
 	}
-	printf("%d\n", totalCoins); /* printing the minimum coins needed */
+	printf("%ld\n", totalCoins); /* printing the minimum coins needed */
 	return (0);
 }
