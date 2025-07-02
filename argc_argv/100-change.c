@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	}
 	errno = 0;
 	rest = strtol(argv[1], &endPtr, 10); /* convert string to long integer */
-	/* if number is too long or is invalid print Error return 0 */
+	/* if number is too big or is invalid print Error return 1 */
 	if (errno == ERANGE || *endPtr != '\0' || !isValidNumber(argv[1]))
 	{
 		printf("Error\n");
