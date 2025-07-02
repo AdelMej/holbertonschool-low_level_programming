@@ -58,7 +58,7 @@ int isValidNumber(char *s)
 {
 	int i = 0;
 
-	if (s[0] == '-')
+	if (s[0] == '\0' || s[0] == '-')
 		return (0);
 
 	for (i = 0; s[i] != '\0'; i++)
