@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
+
 /**
 * _calloc - allocate memory and initialize it to zero
 * @nmemb: number of element to initialize
@@ -13,6 +13,7 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *res;
+	unsigned int i;
 
 	if (nmemb <= 0 || size <= 0)
 		return (NULL);
@@ -21,6 +22,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (res == NULL)
 	 return (NULL);
 
-	memset(res, 0, nmemb * size);
+	for (i = 0; i < nmemb; i++)
+	{
+		res[i] = 0;
+	}
+
 	return ((void *)res);
 }
