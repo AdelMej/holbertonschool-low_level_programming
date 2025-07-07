@@ -11,12 +11,13 @@
 void *malloc_checked(unsigned int b)
 {
 	void *res;
+
 	if (b == 0)
 		return (NULL);
 
 	res = malloc(b);
-	if(res == NULL)
-		exit (98);
+	if (res == NULL)
+		exit(98);
 
 	/* returns a void * */
 	return (res);
