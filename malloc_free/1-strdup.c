@@ -7,7 +7,6 @@
 *
 * Return: NULL if it fails otherwise return the copied string
 */
-
 char *_strdup(char *str)
 {
 	char *cpString;
