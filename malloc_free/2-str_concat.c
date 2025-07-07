@@ -14,7 +14,7 @@ char *str_concat(char *s1, char *s2)
 	int sizeS1, sizeS2, i;
 	char *concString;
 
-	if(s1 == NULL || s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 	{
 		return (NULL);
 	}
@@ -26,7 +26,7 @@ char *str_concat(char *s1, char *s2)
 	concString = malloc(sizeS1 + sizeS2 + 1);
 
 	if (concString == NULL)
-		return NULL;
+		return (NULL);
 
 	for (i = 0; i < sizeS1; i++)
 	{
