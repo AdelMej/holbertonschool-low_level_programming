@@ -17,7 +17,7 @@ char *create_array(unsigned int size, char c)
 
 	if (size == 0)
 		return (NULL);
-	genArr = malloc(sizeof(char) * (size + 1));
+	genArr = malloc(sizeof(char) * size);
 
 	if (genArr == NULL) /* return NULL if malloc failed */
 		return (NULL);
@@ -26,7 +26,7 @@ char *create_array(unsigned int size, char c)
 	{
 		genArr[i] = c;
 	}
-	genArr[size] = '\0';
+
 	return (genArr);
 }
 
