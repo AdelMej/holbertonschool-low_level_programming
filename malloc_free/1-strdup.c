@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
 * _strdup - a function that copy a string and return it's copy
 * @str: a string to be copied
@@ -26,6 +27,6 @@ char *_strdup(char *str)
 	{
 		cpString[i] = str[i];
 	}
-	cpString[i] = '\0';
+	cpString[size] = '\0';
 	return (cpString);
 }
