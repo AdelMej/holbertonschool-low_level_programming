@@ -19,10 +19,10 @@ char *create_array(unsigned int size, char c)
 		return (NULL);
 	genArr = malloc(sizeof(char) * (size + 1));
 
-	if (genArr == NULL)
+	if (genArr == NULL) /* return NULL if malloc failed */
 		return (NULL);
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size; i++) /* filling the array with c */
 	{
 		genArr[i] = c;
 	}
