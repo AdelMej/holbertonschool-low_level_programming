@@ -13,4 +13,7 @@ char *_strdup(char *str);
 /* a function that concatenate 2 strings */
 char *str_concat(char *s1, char *s2);
 
+/* a function that allocate a grid */
+int **alloc_grid(int width, int height);
+
 #endif
