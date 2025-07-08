@@ -19,7 +19,7 @@ struct dog
 /* a function used to initialize a dog structure */
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
-/* */
+/* a function that prints a given dog */
 void print_dog(struct dog *d);
 
 #endif
