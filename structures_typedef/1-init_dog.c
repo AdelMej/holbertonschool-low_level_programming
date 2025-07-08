@@ -9,14 +9,23 @@
 *
 * Description: a quick way to initialize a dog structure
 * with a name, age and owner
+* initialize value to "" if NULL is given
 */
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (name != NULL && age >= 0 && owner != NULL)
-	{
+	if (name != NULL) /* check name */
 		d->name = name;
+	else
+		d->name = "";
+
+	if (age >= 0) /* check age */
 		d->age = age;
+	else
+		d->age = 0;
+	
+	if (owner != NULL) /* check owner */
 		d->owner = owner;
-	}
+	else
+		d->owner = "";
 }
