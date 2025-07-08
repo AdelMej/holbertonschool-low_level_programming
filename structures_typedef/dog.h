@@ -24,4 +24,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
 /* a function that prints a given dog */
 void print_dog(struct dog *d);
 
+/* a function that create a new dog*/
+dog_t *new_dog(char *name, float age, char *owner);
+
 #endif
