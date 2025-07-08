@@ -27,4 +27,7 @@ void print_dog(struct dog *d);
 /* a function that create a new dog*/
 dog_t *new_dog(char *name, float age, char *owner);
 
+/* a function to free a dog_t */
+void free_dog(dog_t *d);
+
 #endif
