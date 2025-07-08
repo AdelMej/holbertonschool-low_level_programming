@@ -23,7 +23,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 		d->age = age;
 	else
 		d->age = 0;
-	
+
 	if (owner != NULL) /* check owner */
 		d->owner = owner;
 	else
