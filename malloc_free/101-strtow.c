@@ -43,7 +43,7 @@ char **strtow(char *str)
 			return (NULL);
 		}
 		resStr[i] = cpy_word(j, str, resStr[i]);
-		j +=sizeWord;
+		j += sizeWord;
 	}
 	resStr[nbWord] = NULL;
 
