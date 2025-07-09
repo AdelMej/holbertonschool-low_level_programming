@@ -34,7 +34,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	newPtr = malloc(new_size);
 	if (newPtr == NULL)
 		return (NULL);
-	
+
 	bytes_to_copy = old_size;
 	if (old_size > new_size)
 		bytes_to_copy = new_size;
