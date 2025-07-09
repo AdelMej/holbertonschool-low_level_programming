@@ -16,4 +16,7 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 /* creaes an array from min to max */
 int *array_range(int min, int max);
 
+/* a function to realloc previously sized memory */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
 #endif
