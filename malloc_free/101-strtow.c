@@ -44,6 +44,7 @@ char **strtow(char *str)
 			return (NULL);
 		}
 		resstr[i] = cpy_word(j, str, resstr[i]);
+		j +=sizeword;
 	}
 	resstr[nbword] = NULL;
 
