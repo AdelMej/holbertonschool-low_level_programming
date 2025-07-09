@@ -6,11 +6,11 @@
 * @old_size: the size of the old allocation
 * @new_size: the size of the new allocation
 *
-* Return: void;
+* Return: void * pointer
 */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	unsigned int i;
+	unsigned int i, bytes_to_copy;
 	void *newPtr;
 
 	if (new_size == 0)
@@ -31,21 +31,16 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (newPtr == NULL)
 		return (ptr);
 
-	if (new_size > old_size)
-	{
-		for (i = 0; i < old_size; i++)
-		{
-			((char *)newPtr)[i] = ((char *)ptr)[i];
-		}
-	}
+	if (new_size < old_size)
+		bytes_to_copy = new_size;
 	else
-	{
+		bytes_to_copy = old_size;
 
-		for (i = 0; i < new_size; i++)
-		{
-			((char *)newPtr)[i] = ((char *)ptr)[i];
-		}
+	for (i = 0; i < bytes_to_copy; i++)
+	{
+		((char *)newPtr)[i] = ((char *)ptr)[i];
 	}
+
 	free(ptr);
 	return (newPtr);
 }
