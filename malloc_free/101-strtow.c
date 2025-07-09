@@ -18,8 +18,8 @@ void free_resstr(char **resstr);
 char **strtow(char *str)
 {
 	char **resstr;
-	int sizeword, sizestr, nbword;
-	int i, j, k;
+	int sizeword, nbword;
+	int i, j;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
