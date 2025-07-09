@@ -5,7 +5,7 @@
 int count_words(char *str);
 int word_length(int index, char *str);
 char *cpy_word(int index, char *from, char *to);
-void free_resstr(char **resstr);
+void free_resStr(char **resStr);
 
 /**
 * strtow - a function that returns a pointers to an array of strings
@@ -17,38 +17,37 @@ void free_resstr(char **resstr);
 */
 char **strtow(char *str)
 {
-	char **resstr;
-	int sizeword, nbword;
+	char **resStr;
+	int sizeWord, nbWord;
 	int i, j;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-	nbword = count_words(str);
-	if (nbword == 0) /* return null if no words are found */
+	nbWord = count_words(str);
+	if (nbWord == 0) /* return null if no words are found */
 		return (NULL);
-	resstr = malloc(sizeof(char *) * (nbword + 1)); /* creating the array */
-	if (resstr == NULL)
-	{
+	resStr = malloc(sizeof(char *) * (nbWord + 1)); /* creating the array */
+	if (resStr == NULL)
 		return (NULL);
-	}
+
 	j = 0;
-	for (i = 0; i < nbword; i++) /* loop for creating array of strings */
+	for (i = 0; i < nbWord; i++) /* loop for creating array of strings */
 	{
 		while (str[j] != '\0' && str[j] == ' ')
 			j++;
-		sizeword = word_length(j, str);
-		resstr[i] = malloc(sizeof(char) * (sizeword + 1));
-		if (resstr[i] == NULL)
+		sizeWord = word_length(j, str);
+		resStr[i] = malloc(sizeof(char) * (sizeWord + 1));
+		if (resStr[i] == NULL)
 		{
-			free_resstr(resstr);
+			free_resStr(resStr);
 			return (NULL);
 		}
-		resstr[i] = cpy_word(j, str, resstr[i]);
-		j +=sizeword;
+		resStr[i] = cpy_word(j, str, resStr[i]);
+		j +=sizeWord;
 	}
-	resstr[nbword] = NULL;
+	resStr[nbWord] = NULL;
 
-	return (resstr);
+	return (resStr);
 }
 
 /**
@@ -59,7 +58,7 @@ char **strtow(char *str)
 */
 int count_words(char *str)
 {
-	int nbword = 0;
+	int nbWord = 0;
 	int in_Word = 0;
 	int i;
 
@@ -67,7 +66,7 @@ int count_words(char *str)
 	{
 		if (str[i] != ' ' && !in_Word)
 		{
-			nbword++; /* found start of a new word */
+			nbWord++; /* found start of a new word */
 			in_Word = 1; /* we are in a word */
 		}
 		else if (str[i] == ' ')
@@ -75,7 +74,7 @@ int count_words(char *str)
 			in_Word = 0; /* word ended */
 		}
 	}
-	return (nbword);
+	return (nbWord);
 }
 
 /**
@@ -87,14 +86,14 @@ int count_words(char *str)
 */
 int word_length(int index, char *str)
 {
-	int sizeword = 0;
+	int sizeWord = 0;
 
 	while (str[index] != '\0' && str[index] != ' ')
 	{
-		sizeword++;
+		sizeWord++;
 		index++;
 	}
-	return (sizeword);
+	return (sizeWord);
 }
 /**
 * cpy_word - a function to copy the words from a string
@@ -120,19 +119,19 @@ char *cpy_word(int index, char *from, char *to)
 }
 
 /**
-* free_resstr - a function to free resstr if malloc fails
-* @resstr: the allocated array to free
+* free_resStr - a function to free resStr if malloc fails
+* @resStr: the allocated array to free
 *
 * Return: void
 */
-void free_resstr(char **resstr)
+void free_resStr(char **resStr)
 {
 	int i;
 
-	if (resstr == NULL)
+	if (resStr == NULL)
 		return;
 
-	for (i = 0; resstr[i] != NULL; i++) /* cleaning up memory after fail */
-		free(resstr[i]);
-	free(resstr);
+	for (i = 0; resStr[i] != NULL; i++) /* cleaning up memory after fail */
+		free(resStr[i]);
+	free(resStr);
 }
