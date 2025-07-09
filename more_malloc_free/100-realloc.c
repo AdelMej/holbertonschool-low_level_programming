@@ -14,6 +14,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	unsigned int i, bytes_to_copy;
 	void *newPtr;
 
+	if (ptr == NULL)
+	{
+		newPtr = malloc(new_size);
+		if (newPtr == NULL)
+			return (NULL);
+		return (newPtr);
+	}
+
 	if (new_size == 0)
 	{
 		free(ptr);
@@ -22,14 +30,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (new_size == old_size)
 		return (ptr);
-
-	if (ptr == NULL)
-	{
-		newPtr = malloc(new_size);
-		if (newPtr == NULL)
-			return (NULL);
-		return (newPtr);
-	}
 
 	newPtr = malloc(new_size);
 	if (newPtr == NULL)
