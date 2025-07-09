@@ -34,11 +34,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	newPtr = malloc(new_size);
 	if (newPtr == NULL)
 		return (NULL);
-
-	if (new_size < old_size)
+	
+	bytes_to_copy = old_size;
+	if (old_size > new_size)
 		bytes_to_copy = new_size;
-	else
-		bytes_to_copy = old_size;
 
 	for (i = 0; i < bytes_to_copy; i++)
 		((char *)newPtr)[i] = ((char *)ptr)[i];
