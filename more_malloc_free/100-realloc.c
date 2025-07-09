@@ -7,6 +7,7 @@
 * @new_size: the size of the new allocation
 *
 * Return: void * pointer
+* Note: if new size is 0 the pointer will be freed a NULL will be returned
 */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
@@ -18,6 +19,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
+	if (ptr != NULL && old_size == 0)
+		return (ptr);
 
 	if (new_size == old_size)
 		return (ptr);
