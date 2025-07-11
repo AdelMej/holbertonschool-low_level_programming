@@ -81,6 +81,7 @@ char *multBigNumber(char *s1, char *s2)
 	{
 		free(revS1);
 		free(revS2);
+		printf("Error\n");
 		exit(98);
 	}
 	for (i = 0; revS1[i] != '\0'; i++)
