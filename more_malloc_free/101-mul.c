@@ -61,11 +61,15 @@ char *multBigNumber(char *s1, char *s2)
 
 	revS1 = malloc(sizeS1 + 1);
 	if (revS1 == NULL)
+	{
+		printf("Error\n");
 		exit(98);
+	}
 	revS2 = malloc(sizeS2 + 1);
 	if (revS2 == NULL)
 	{
 		free(revS1);
+		printf("Error\n");
 		exit(98);
 	}
 	_strcpy(s1, revS1);
