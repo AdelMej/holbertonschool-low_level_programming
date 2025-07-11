@@ -64,8 +64,10 @@ char *multBigNumber(char *s1, char *s2)
 		exit(98);
 	revS2 = malloc(sizeS2 + 1);
 	if (revS2 == NULL)
+	{
 		free(revS1);
 		exit(98);
+	}
 	_strcpy(s1, revS1);
 	_strcpy(s2, revS2);
 	revString(revS1);
