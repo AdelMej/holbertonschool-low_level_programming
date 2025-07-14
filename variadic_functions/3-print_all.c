@@ -2,12 +2,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-/* function declaration */
-void print_char(va_list args);
-void print_int(va_list args);
-void print_float(va_list args);
-void print_string(va_list args);
-
 /**
 * print_all - a function that prints everything depending on a given format
 * @format: the format of the string
@@ -16,84 +10,41 @@ void print_string(va_list args);
 */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, j;
+	unsigned int i = 0;
 	char *separator = "";
-	format_func_t funcs[] = {
-	{'c', print_char},
-	{'i', print_int},
-	{'f', print_float},
-	{'s', print_string},
-	{'\0', NULL}  /* Sentinel value to mark the end */
-	};
+	char *toPrint;
 
 	va_list daVa;
 
 	va_start(daVa, format);
-	while (format[i] != '\0') /* parcouring the format */
+	while (format && format[i])
 	{
-		j = 0;
-		while (funcs[j].symbol != '\0') /* searching for a printable format */
+		switch (format[i])
 		{
-			if (funcs[j].symbol == format[i]) /* printing if a match is found */
-			{
-				printf("%s", separator);
-				funcs[j].func(daVa);
-				separator = ", ";
+			case 'c':
+				printf("%s%c", separator, va_arg(daVa, int));
 				break;
-			}
-			j++;
+			case 'i':
+				printf("%s%d", separator, va_arg(daVa, int));
+				break;
+			case 'f':
+				printf("%s%f", separator, va_arg(daVa, double));
+				break;
+			case 's':
+				toPrint = va_arg(daVa, char *);
+				if (toPrint == NULL)
+					printf("%s(nil)", separator);
+				else
+					printf("%s%s", separator, toPrint);
+				break;
+			default:
+				i++;
+				continue;
 		}
+		separator = ", ";
 		i++;
 	}
+
 	printf("\n");
 	va_end(daVa);
-}
-
-/**
-* print_char - a function to print a char
-* @args: a va_list
-*
-* Return: void
-*/
-void print_char(va_list args)
-{
-	printf("%c", va_arg(args, int));
-}
-
-/**
-* print_int - a function to print an int
-* @args: a va_list
-*
-* Return: void
-*/
-void print_int(va_list args)
-{
-	printf("%d", va_arg(args, int));
-}
-
-/**
-* print_float - a function to print a float
-* @args: a va_list
-*
-* Return: void
-*/
-void print_float(va_list args)
-{
-	printf("%f", va_arg(args, double));
-}
-/**
-* print_string - a function to print a string
-* @args: a va_list
-*
-* Return: void
-*/
-void print_string(va_list args)
-{
-	char *str;
-
-	str = va_arg(args, char *);
-	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
 }
