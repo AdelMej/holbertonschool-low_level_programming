@@ -9,14 +9,6 @@ void print_float(va_list args);
 void print_string(va_list args);
 
 /**
-*/
-typedef struct format_func
-{
-	char symbol;
-	void (*func)(va_list);
-} format_func_t;
-
-/**
 * print_all - a function that prints everything depending on a given format
 * @format: the format of the string
 *
