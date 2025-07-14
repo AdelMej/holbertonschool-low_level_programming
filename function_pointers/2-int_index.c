@@ -6,7 +6,7 @@
 * @size: the size of the array
 * @cmp: the function to use for comparaison
 *
-* Return: the index of the element found 
+* Return: the index of the element found
 * else -1
 */
 int int_index(int *array, int size, int (*cmp)(int))
