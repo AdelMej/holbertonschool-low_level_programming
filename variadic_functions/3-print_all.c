@@ -84,7 +84,7 @@ void print_float(va_list args)
 */
 void print_string(va_list args)
 {
-	char * str;
+	char *str;
 
 	str = va_arg(args, char *);
 	if (str == NULL)
