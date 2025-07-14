@@ -11,4 +11,7 @@ void print_name(char *name, void (*f)(char *));
 /* a function that prints an array depending on a given function */
 void array_iterator(int *array, size_t size, void (*action)(int));
 
+/* a function that searches for an integer with a given function */
+int int_index(int *array, int size, int (*cmp)(int));
+
 #endif
