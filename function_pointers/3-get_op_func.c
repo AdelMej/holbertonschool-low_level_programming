@@ -20,13 +20,15 @@ int (*get_op_func(char *s))(int a, int b)
 	};
 	int i;
 
-	for (i = 0; ops[i].op != NULL; i++) /* parcouring the array of structures */
+	i = 0;
+	while (ops[i].op != NULL) /* parcouring the array of structures */
 	{
 		/* succeed if match found and there isn't an added character */
 		if (ops[i].op[0] == s[0] && s[1] == '\0')
 		{
 			return (ops[i].f);
 		}
+		i++;
 	}
 
 	/* return NULL if no match are found or s[1] != '\0' */
