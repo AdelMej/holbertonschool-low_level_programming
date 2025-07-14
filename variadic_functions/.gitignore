@@ -1,0 +1,6 @@
+*
+!*.c
+*-main.c
+!.gitignore
+!README.md
+!variadic_functions.h
