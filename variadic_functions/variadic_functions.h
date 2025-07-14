@@ -1,17 +1,6 @@
 #ifndef VARIADIC_H
 #define VARIADIC_H
 
-/**
-* struct format_func - a structure to align a symbol with a function pointer
-* @symbol: a string representing a symbol
-* @func: a function pointer associated with the symbol
-*/
-typedef struct format_func
-{
-	char symbol;
-	void (*func)(va_list);
-} format_func_t;
-
 /* a function that prints a character */
 int _putchar(char c);
 
