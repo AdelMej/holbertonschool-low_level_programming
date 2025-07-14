@@ -15,6 +15,9 @@ typedef struct op
 	int (*f)(int a, int b);
 } op_t;
 
+/* a function to print characters */
+int _putchar(char c);
+
 /* a function that adds a and b */
 int op_add(int a, int b);
 
