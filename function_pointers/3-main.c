@@ -10,7 +10,7 @@
 * exit with 99 if no operation is found
 * exit with 100 if a division by 0 is attempted
 */
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int a, b, result;
 	int (*operation)(int, int); /* creating a pointer function */
@@ -34,7 +34,7 @@ int main (int argc, char **argv)
 		exit(99);
 	}
 	result = operation(a, b); /* doing the operation */
-	
+
 	printf("%d\n", result); /* printing result */
 	return (0); /* success */
 }
