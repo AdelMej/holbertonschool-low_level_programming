@@ -19,12 +19,12 @@ void print_all(const char * const format, ...)
 	unsigned int i = 0, j;
 	char *separator = "";
 	char symbol[] = {'c', 'i', 'f', 's', '\0'};
-	void (*funcs[])(va_list) = {print_char, print_int, print_float, print_string, NULL};
+	void (*funcs[])(va_list) = {print_char, print_int, print_float, print_string};
 
 	va_list daVa;
 
 	va_start(daVa, format);
-	while (format[i] != '\0') /* parcouring the format */
+	while (format && format[i]) /* parcouring the format */
 	{
 		j = 0;
 		while (symbol[j] != '\0') /* searching for a printable format */
@@ -88,7 +88,9 @@ void print_string(va_list args)
 
 	str = va_arg(args, char *);
 	if (str == NULL)
+	{
 		printf("(nil)");
-	else
-		printf("%s", str);
+		return;
+	}
+	printf("%s", str);
 }
