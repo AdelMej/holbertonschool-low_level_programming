@@ -1,5 +1,6 @@
 #include "3-calc.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 /**
 * get_op_func - a function that returns an operation
 * if there is a match otherwise return NULL
