@@ -3,10 +3,10 @@
 #include <stdarg.h>
 
 /* function declaration */
-void print_char(va_list args);
-void print_int(va_list args);
-void print_float(va_list args);
-void print_string(va_list args);
+void print_char(va_list *args);
+void print_int(va_list *args);
+void print_float(va_list *args);
+void print_string(va_list *args);
 
 /**
 * print_all - a function that prints everything depending on a given format
@@ -18,9 +18,8 @@ void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, j;
 	char *separator = "";
-	char symbol[] = {'c', 'i', 'f', 's', '\0'};
-	void (*funcs[])(va_list) = {print_char, print_int, print_float, print_string};
-
+	char *symbol = "cifs";
+	void (*funcs[])(va_list *) = {print_char, print_int, print_float, print_string};
 	va_list daVa;
 
 	va_start(daVa, format);
@@ -32,7 +31,7 @@ void print_all(const char * const format, ...)
 			if (symbol[j] == format[i]) /* printing if a match is found */
 			{
 				printf("%s", separator);
-				funcs[j](daVa);
+				funcs[j](&daVa);
 				separator = ", ";
 				break;
 			}
@@ -50,9 +49,9 @@ void print_all(const char * const format, ...)
 *
 * Return: void
 */
-void print_char(va_list args)
+void print_char(va_list *args)
 {
-	printf("%c", va_arg(args, int));
+	printf("%c", va_arg(*args, int));
 }
 
 /**
@@ -61,9 +60,9 @@ void print_char(va_list args)
 *
 * Return: void
 */
-void print_int(va_list args)
+void print_int(va_list *args)
 {
-	printf("%d", va_arg(args, int));
+	printf("%d", va_arg(*args, int));
 }
 
 /**
@@ -72,9 +71,9 @@ void print_int(va_list args)
 *
 * Return: void
 */
-void print_float(va_list args)
+void print_float(va_list *args)
 {
-	printf("%f", va_arg(args, double));
+	printf("%f", va_arg(*args, double));
 }
 /**
 * print_string - a function to print a string
@@ -82,11 +81,11 @@ void print_float(va_list args)
 *
 * Return: void
 */
-void print_string(va_list args)
+void print_string(va_list *args)
 {
 	char *str;
 
-	str = va_arg(args, char *);
+	str = va_arg(*args, char *);
 	if (str == NULL)
 	{
 		printf("(nil)");
