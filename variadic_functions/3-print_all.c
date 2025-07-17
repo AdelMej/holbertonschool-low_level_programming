@@ -6,7 +6,7 @@
 void print_char(va_list *args);
 void print_int(va_list *args);
 void print_float(va_list *args);
-void print_string(va_list *args);
+void print_str(va_list *args);
 
 /**
 * print_all - a function that prints everything depending on a given format
@@ -16,11 +16,18 @@ void print_string(va_list *args);
 */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, j;
+	unsigned int i = 0;
+	unsigned int j;
 	char *separator = "";
-	char *symbol = "cifs";
-	void (*funcs[])(va_list *) = {print_char, print_int, print_float, print_string};
+	char symbol[] = {'c', 'i', 'f', 's', '\0'};
 	va_list daVa;
+
+	void (*funcs[])(va_list *) = {
+		print_char,
+		print_int,
+		print_float,
+		print_str
+	};
 
 	va_start(daVa, format);
 	while (format && format[i]) /* parcouring the format */
@@ -81,15 +88,14 @@ void print_float(va_list *args)
 *
 * Return: void
 */
-void print_string(va_list *args)
+void print_str(va_list *args)
 {
 	char *str;
 
 	str = va_arg(*args, char *);
 	if (str == NULL)
 	{
-		printf("(nil)");
-		return;
+		str = "(nil)";
 	}
 	printf("%s", str);
 }
