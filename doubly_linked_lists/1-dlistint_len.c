@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
-* dlistint_t_len - a function that returns the length of a doubled linked list
+* dlistint_len - a function that returns the length of a doubled linked list
 * @h: the head of the linked list
 *
 * Return: the length of the doubled linked list
@@ -16,7 +16,8 @@ size_t dlistint_len(const dlistint_t *h)
 		return (0);
 
 	temp = h;
-	while (temp != NULL) {
+	while (temp != NULL)
+	{
 		nbNodes++;
 		temp = temp->next;
 	}
