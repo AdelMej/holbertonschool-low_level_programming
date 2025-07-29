@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/*
+/**
 * get_dnodeint_at_index - returns a node at a fiven index
 * @head: the head of the doubled linked lists
 * @index: the index of the node
