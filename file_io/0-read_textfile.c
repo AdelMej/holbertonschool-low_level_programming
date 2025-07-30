@@ -14,7 +14,7 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, nbCharact = 0;
+	int fd, nbRead, nbWrite;
 	char *toWrite;
 
 	if (filename == NULL)
@@ -24,23 +24,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	toWrite = malloc(letters + 1);
+	toWrite = malloc(letters);
 	if (toWrite == NULL)
 	{
 		close(fd);
 		return (0);
 	}
 
-	nbCharact = read(fd, toWrite, letters);
-	if (nbCharact == -1)
+	nbRead = read(fd, toWrite, letters);
+	if (nbRead == -1)
 	{
 		close(fd);
 		free(toWrite);
 		return (0);
 	}
 
-	nbCharact = write(1, toWrite, nbCharact);
-	if (nbCharact == -1)
+	nbWrite = write(STDOUT_FILENO, toWrite, nbRead);
+	if (nbWrite == -1 || nbWrite != nbRead)
 	{
 		close(fd);
 		free(toWrite);
@@ -48,5 +48,5 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	free(toWrite);
-	return (nbCharact);
+	return (nbWrite);
 }
