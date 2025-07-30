@@ -45,18 +45,8 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	do {
-		bytesRead = read(fdFrom, buffer, BUFFER_SIZE);
-		if (bytesRead == -1)
-		{
-			closeFile(fdFrom);
-			closeFile(fdTo);
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		if (bytesRead == 0)
-			break;
-
+	while ((bytesRead = read(fdFrom, buffer, BUFFER_SIZE)) > 0)
+	{
 		totalWritten = 0;
 		while (totalWritten < bytesRead)
 		{
@@ -70,7 +60,14 @@ int main(int argc, char **argv)
 			}
 			totalWritten += bytesWritten;
 		}
-	} while (1);
+	}
+	if (bytesRead == -1)
+	{
+		closeFile(fdFrom);
+		closeFile(fdTo);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
 
 	closeFile(fdFrom);
 	closeFile(fdTo);
