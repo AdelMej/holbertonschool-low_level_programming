@@ -19,7 +19,6 @@ void closeFile(int fd);
 */
 int main(int argc, char **argv)
 {
-	char *fileFrom, *fileTo;
 	char buffer[1024];
 	int fdFrom, fdTo, bytesRead, bytesWritten;
 
@@ -29,16 +28,13 @@ int main(int argc, char **argv)
 		exit(97);
 	}
 
-	fileFrom = argv[1];
-	fileTo = argv[2];
-
-	fdFrom = open(fileFrom, O_RDONLY);
+	fdFrom = open(argv[1], O_RDONLY);
 	if (fdFrom == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
-	fdTo = open(fileTo, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fdTo = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fdTo == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
