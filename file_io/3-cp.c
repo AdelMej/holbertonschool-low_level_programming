@@ -20,7 +20,7 @@ void closeFile(int fd);
 int main(int argc, char **argv)
 {
 	char buffer[1024];
-	int fdFrom, fdTo, bytesRead, bytesWritten;
+	int fdFrom, fdTo, bytesRead, bytesWritten, totalWritten;
 
 	if (argc != 3)
 	{
@@ -53,13 +53,19 @@ int main(int argc, char **argv)
 		}
 		if (bytesRead == 0)
 			break;
-		bytesWritten = write(fdTo, buffer, bytesRead);
-		if (bytesWritten == -1)
-		{
-			closeFile(fdFrom);
-			closeFile(fdTo);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
+
+		totalWritten = 0;
+		while (totalWritten < bytesRead)
+			{
+				bytesWritten = write(fdTo, buffer, bytesRead);
+			if (bytesWritten == -1)
+			{
+				closeFile(fdFrom);
+				closeFile(fdTo);
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+				exit(99);
+			}
+			totalWritten += bytesWritten;
 		}
 	} while (1);
 
