@@ -37,8 +37,7 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	fdTo = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC,
-				S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	fdTo = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fdTo == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -54,9 +53,9 @@ int main(int argc, char **argv)
 			bytesWritten = write(fdTo, buffer + totalWritten, bytesRead - totalWritten);
 			if (bytesWritten <= 0)
 			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 				closeFile(fdFrom);
 				closeFile(fdTo);
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 				exit(99);
 			}
 			totalWritten += bytesWritten;
@@ -64,9 +63,9 @@ int main(int argc, char **argv)
 	}
 	if (bytesRead == -1)
 	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		closeFile(fdFrom);
 		closeFile(fdTo);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
@@ -77,7 +76,7 @@ int main(int argc, char **argv)
 
 /**
 * closeFile - a function to close a file
-* @fd: the file definition
+* @fd: the file descriptor
 *
 * Return: void
 * exit with 100 if closing failed
