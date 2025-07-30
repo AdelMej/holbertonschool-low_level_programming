@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 {
 	char *fileFrom, *fileTo;
 	char buffer[1024];
-	int fdFrom, fdTo, lenFrom, lenTo;
+	int fdFrom, fdTo, bytesRead, bytesWritten;
 
 	if (argc != 3)
 	{
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	fdFrom = open(fileFrom, O_RDONLY);
 	if (fdFrom == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", fileFrom);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 		exit(98);
 	}
 	fdTo = open(fileTo, O_WRONLY | O_CREAT | O_TRUNC, 0664);
@@ -47,18 +47,18 @@ int main(int argc, char **argv)
 	}
 
 	do {
-		lenFrom = read(fdFrom, buffer, 1024);
-		if (lenFrom == -1)
+		bytesRead = read(fdFrom, buffer, 1024);
+		if (bytesRead == -1)
 		{
 			closeFile(fdFrom);
 			closeFile(fdTo);
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
 			exit(98);
 		}
-		if (lenFrom == 0)
+		if (bytesRead == 0)
 			break;
-		lenTo = write(fdTo, buffer, lenFrom);
-		if (lenTo == -1 || lenTo != lenFrom)
+		bytesWritten = write(fdTo, buffer, bytesRead);
+		if (bytesWritten == -1 || bytesWritten != bytesRead)
 		{
 			closeFile(fdFrom);
 			closeFile(fdTo);
