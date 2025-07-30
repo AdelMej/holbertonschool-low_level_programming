@@ -56,8 +56,8 @@ int main(int argc, char **argv)
 
 		totalWritten = 0;
 		while (totalWritten < bytesRead)
-			{
-				bytesWritten = write(fdTo, buffer, bytesRead);
+		{
+			bytesWritten = write(fdTo, buffer, bytesRead);
 			if (bytesWritten == -1)
 			{
 				closeFile(fdFrom);
