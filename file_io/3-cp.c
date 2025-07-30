@@ -4,6 +4,9 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <stdlib.h>
+
+#define BUFFER_SIZE 1024
+
 /* Function declarations */
 void closeFile(int fd);
 
@@ -19,7 +22,7 @@ void closeFile(int fd);
 */
 int main(int argc, char **argv)
 {
-	char buffer[1024];
+	char buffer[BUFFER_SIZE];
 	int fdFrom, fdTo, bytesRead, bytesWritten, totalWritten;
 
 	if (argc != 3)
@@ -43,7 +46,7 @@ int main(int argc, char **argv)
 	}
 
 	do {
-		bytesRead = read(fdFrom, buffer, 1024);
+		bytesRead = read(fdFrom, buffer, BUFFER_SIZE);
 		if (bytesRead == -1)
 		{
 			closeFile(fdFrom);
@@ -58,7 +61,7 @@ int main(int argc, char **argv)
 		while (totalWritten < bytesRead)
 		{
 			bytesWritten = write(fdTo, buffer + totalWritten, bytesRead - totalWritten);
-			if (bytesWritten == -1)
+			if (bytesWritten <= 0)
 			{
 				closeFile(fdFrom);
 				closeFile(fdTo);
