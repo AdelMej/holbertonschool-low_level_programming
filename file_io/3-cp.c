@@ -5,7 +5,6 @@
 #include <sys/types.h>
 #include <stdlib.h>
 /* Function declarations */
-int _strlen(char *str);
 void closeFile(int fd);
 
 /**
@@ -78,7 +77,7 @@ int main(int argc, char **argv)
 * @fd: the file definition
 *
 * Return: void
-* exit with 98 if closing failed
+* exit with 100 if closing failed
 */
 void closeFile(int fd)
 {
