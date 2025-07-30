@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 		if (bytesRead == 0)
 			break;
 		bytesWritten = write(fdTo, buffer, bytesRead);
-		if (bytesWritten == -1 || bytesWritten != bytesRead)
+		if (bytesWritten == -1)
 		{
 			closeFile(fdFrom);
 			closeFile(fdTo);
