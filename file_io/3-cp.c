@@ -53,20 +53,13 @@ int main(int argc, char **argv)
 		{
 			closeFile(fdFrom);
 			closeFile(fdTo);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fileFrom);
+			exit(98);
 		}
 		if (lenFrom == 0)
 			break;
 		lenTo = write(fdTo, buffer, lenFrom);
-		if (lenTo == -1)
-		{
-			closeFile(fdFrom);
-			closeFile(fdTo);
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fileTo);
-			exit(99);
-		}
-		if (lenTo != lenFrom)
+		if (lenTo == -1 || lenTo != lenFrom)
 		{
 			closeFile(fdFrom);
 			closeFile(fdTo);
