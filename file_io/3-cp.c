@@ -6,7 +6,6 @@
 #include <stdlib.h>
 /* Function declarations */
 int _strlen(char *str);
-void _writeError(char *message, char *file_name);
 void closeFile(int fd);
 
 /**
@@ -112,7 +111,7 @@ void closeFile(int fd)
 {
 	if (close(fd) == -1)
 	{
-		dprintf(2, "Error: Can't close %d", fd);
+		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
