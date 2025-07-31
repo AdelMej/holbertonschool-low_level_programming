@@ -34,4 +34,6 @@ typedef struct hash_table_s
 hash_table_t *hash_table_create(unsigned long int size);
 /* a function that copies djb2 */
 unsigned long int hash_djb2(const unsigned char *str);
+/* a function that return an index in the hash table */
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
 #endif
