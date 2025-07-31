@@ -18,7 +18,7 @@ int update_node_value(hash_node_t *head, const char *key, const char *value);
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node, *toCheck;
+	hash_node_t *new_node;
 	unsigned long index;
 
 	if (ht == NULL || key == NULL || value == NULL)
