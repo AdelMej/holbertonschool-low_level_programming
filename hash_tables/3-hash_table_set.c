@@ -52,11 +52,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new_node;
 		return (1);
 	}
-	toCheck = ht->array[index];
-	while (toCheck->next != NULL)
-		toCheck = toCheck->next;
 
-	toCheck->next = new_node;
+	new_node->next = ht->array[index];
+	ht->array[index] = new_node;
 	return (1);
 }
 /**
