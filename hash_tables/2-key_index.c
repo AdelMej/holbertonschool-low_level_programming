@@ -1,6 +1,6 @@
 #include "hash_tables.h"
 #include <limits.h>
-
+#include <stdlib.h>
 /**
 * key_index - a function that return an index
 * @key: the key that will be indexed
