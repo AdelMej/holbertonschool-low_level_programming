@@ -38,4 +38,12 @@ unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 /* a function that that adds a new node in the hash table */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
+/* a function that gets the content in an hash table */
+char *hash_table_get(const hash_table_t *ht, const char *key);
+
+/* --- string utilities --- */
+char *_strdup(const char *str);
+int _strlen(const char *str);
+int _strcmp(const char *str1, const char *str2);
+
 #endif
