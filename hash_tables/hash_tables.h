@@ -36,4 +36,6 @@ hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
 /* a function that return an index in the hash table */
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
+/* a function that that adds a new node in the hash table */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 #endif
