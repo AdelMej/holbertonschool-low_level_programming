@@ -23,7 +23,8 @@ void closeFile(int fd);
 int main(int argc, char **argv)
 {
 	char buffer[BUFFER_SIZE];
-	int fdFrom, fdTo, bytesRead, bytesWritten, totalWritten;
+	int fdFrom, fdTo, totalWritten;
+	ssize_t bytesRead, bytesWritten;
 
 	if (argc != 3)
 	{
