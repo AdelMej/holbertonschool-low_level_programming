@@ -42,7 +42,7 @@ int main(int argc, char **argv)
 	if (fdTo == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		closeFile(fdFrom);
+		close(fdFrom);
 		exit(99);
 	}
 
@@ -55,8 +55,8 @@ int main(int argc, char **argv)
 			if (bytesWritten <= 0)
 			{
 				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-				closeFile(fdFrom);
-				closeFile(fdTo);
+				close(fdFrom);
+				close(fdTo);
 				exit(99);
 			}
 			totalWritten += bytesWritten;
@@ -65,8 +65,8 @@ int main(int argc, char **argv)
 	if (bytesRead == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		closeFile(fdFrom);
-		closeFile(fdTo);
+		close(fdFrom);
+		close(fdTo);
 		exit(98);
 	}
 
